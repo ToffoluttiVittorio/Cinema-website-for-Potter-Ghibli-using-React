@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Bandeau from '../Composants_page/Bandeau';
-import "../Composants_page/Bandeau.css"
 import Cookies from 'js-cookie';
 import "../Page_FilmDetails/FilmDetails.css"
 

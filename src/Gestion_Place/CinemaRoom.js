@@ -126,12 +126,13 @@ const CinemaRoom = () => {
         .catch(error => {
           console.error('Erreur lors de la requête:', error);
         });
+        window.location.href = '/Ticket';
   };
 
   return (
     <div>
-      <div className='reste'>
     <Bandeau/>
+    <div className='reste'>
       <h1>Salle de Cinéma</h1>
       <svg width="500" height="400">
         <CinemaScreen />
@@ -155,8 +156,6 @@ const CinemaRoom = () => {
           <button onClick={() => window.location.href = '/Films/Salle'}>Non</button>
         </div>
       )}
-      
-      <p>{userEmail}</p>
       </div>
     </div>
   );
