@@ -2,7 +2,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const { BrowserRouter: Router, Route, Routes } = require('react-router-dom');
 require('./index.css');
-const App = require('./App.js');
+const App = require('../../../../../App.js');
 const reportWebVitals = require('./reportWebVitals');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
