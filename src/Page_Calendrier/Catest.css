@@ -1,0 +1,12 @@
+.Calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10%;
+  }
+  
+  .Calendar .react-calendar {
+    max-width: 1200px; /* Ajustez la largeur du calendrier selon vos besoins */
+  }
+  

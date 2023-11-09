@@ -1,0 +1,11 @@
+.bandeau {
+  position: sticky;
+  top: 0;
+  display: flex;
+  max-width: 100vw;
+  height: 12vh;
+  background-color: rgb(25, 25, 29);
+  justify-content: space-between;
+  align-items: center; 
+  /* border-bottom: solid -10px rgb(47, 45, 45); */
+}
