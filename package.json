@@ -18,7 +18,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start --experimental-specifier-resolution=node",
+    "start": "react-scripts start --experimental-specifier-resolution=node --useDefineProperty",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "server": "node server/server.js",
