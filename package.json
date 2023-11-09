@@ -2,7 +2,7 @@
   "name": "mon-site-spectacle",
   "version": "0.1.0",
   "private": true,
-  "type":"module",
+  "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -18,7 +18,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --experimental-specifier-resolution=node",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "server": "node server/server.js",
@@ -48,6 +48,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.3",
+    "@babel/node": "^7.22.19",
+    "@babel/preset-react": "^7.23.3",
     "react-scripts": "^5.0.1"
   },
   "engines": {
