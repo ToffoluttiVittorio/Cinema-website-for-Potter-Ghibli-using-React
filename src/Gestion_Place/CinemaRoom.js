@@ -31,13 +31,11 @@ const CinemaRoom = () => {
   const categorie = location.state[1][0];
   let indice_date = location.state[2];
 
-  console.log(location.state[0],location.state[1][0],location.state[2]);
 
   if (!indice_date){
     indice_date = 0;
   };
 
-  console.log(indice_date);
 
   const today = new Date();
   today.setDate(today.getDate() + indice_date);
