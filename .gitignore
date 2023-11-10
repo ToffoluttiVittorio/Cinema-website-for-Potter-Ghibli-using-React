@@ -18,6 +18,10 @@
 .env.test.local
 .env.production.local
 
+# Ignorer les fichiers spécifiques dans le répertoire api_express
+api_express/node_modules
+
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
