@@ -2,9 +2,8 @@ import Bandeau from '../Composants_page/Bandeau.js';
 import "../Composants_page/Bandeau.css"
 import "../Page_Calendrier/Calendrier.css"
 import "../Page_Calendrier/Catest.css"
-import Ghibli_one from '../API_request/Ghibli_one.js';
-import Potter_one from '../API_request/Potter_one.js';
-import React, { useState, useEffect } from "react";
+import Ghiblione from '../API_request/Ghibli_one.js';
+import Potterone from '../API_request/Potter_one.js';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import "../Page_FilmDetails/FilmDetails.css"
@@ -19,7 +18,7 @@ function Calendrier() {
   const location = useLocation();
   const indGhibli = location.state[0];
   const indHarry = location.state[1];
-  const dateonly = location.state[2];
+
 
   return (
     <div className="Calendrier">
@@ -36,8 +35,8 @@ function Calendrier() {
 
       <p style={{fontWeight: 'bold', fontSize: '30px'}}>Film à l'affiche :</p>
 
-      <Ghibli_one filmIndex={indGhibli}/>
-      <Potter_one index={indHarry}/>
+      <Ghiblione filmIndex={indGhibli}/>
+      <Potterone index={indHarry}/>
       </div>
       </div>
   );

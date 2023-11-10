@@ -9,6 +9,10 @@ import Home from "./Home/Home.js"
 import CinemaRoom from './Gestion_Place/CinemaRoom.js';
 import Ticket from './userTicket/userTicket.js'
 
+/**
+ * The function App returns a div element with multiple Route components for different paths.
+ * @returns The App component is returning a JSX element.
+ */
 function App(){
   return (
  

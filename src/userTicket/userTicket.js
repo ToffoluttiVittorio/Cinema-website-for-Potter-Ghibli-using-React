@@ -3,6 +3,12 @@ import Bandeau from '../Composants_page/Bandeau.js';
 import Cookies from 'js-cookie';
 import "../Page_FilmDetails/FilmDetails.css"
 
+/**
+ * The UserTicket function is a React component that fetches and displays a user's tickets, allowing
+ * them to delete tickets if desired.
+ * @returns The UserTicket component is returning a JSX element, which represents the UI of the
+ * component.
+ */
 function UserTicket() {
   const userEmail = Cookies.get('user_email');
   const encodedEmail = encodeURIComponent(userEmail);

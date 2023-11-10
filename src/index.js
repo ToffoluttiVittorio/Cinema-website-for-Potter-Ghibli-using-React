@@ -6,6 +6,9 @@ import App from './App.js';
 import reportWebVitals from './reportWebVitals.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+/* The `root.render()` function is rendering the main component of the application, `<App />`, to the
+DOM. */
 root.render(
   <React.StrictMode>
     <Router>

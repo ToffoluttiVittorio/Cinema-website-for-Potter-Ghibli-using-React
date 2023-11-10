@@ -1,7 +1,7 @@
 import React from 'react';
 import Bandeau from '../Composants_page/Bandeau.js';
 import "../Composants_page/Bandeau.css"
-import Cookies from 'js-cookie';
+
 
 import "./Home.css"
 import "../Page_FilmDetails/FilmDetails.css"
@@ -12,7 +12,7 @@ import "../Page_FilmDetails/FilmDetails.css"
  * @returns The Home component is returning a JSX element.
  */
 function Home() {
-  const userEmail = Cookies.get('user_email');
+
   return (
     <div className="Home">
       <Bandeau/>

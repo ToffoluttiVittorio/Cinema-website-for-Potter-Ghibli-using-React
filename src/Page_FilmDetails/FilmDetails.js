@@ -1,14 +1,17 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import Bandeau from '../Composants_page/Bandeau.js';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Potter_one from '../API_request/Potter_one.js';
-import Ghibli_one from '../API_request/Ghibli_one.js';
+import Potterone from '../API_request/Potter_one.js';
+import Ghiblione from '../API_request/Ghibli_one.js';
 import "../Page_FilmDetails/FilmDetails.css"
 
 
 
+/**
+ * The function `FilmDetails` is a React component that renders different film components based on the
+ * film name and index passed through the URL parameters.
+ * @returns a JSX element.
+ */
 function FilmDetails() {
     const location = useLocation();
     let id = location.state[0];
@@ -21,14 +24,11 @@ function FilmDetails() {
     } else {
         id = 0
     }
-    if (film == "Potter"){
-        film = <Potter_one index={id} indice = {indice}/>
+    if (film === "Potter"){
+        film = <Potterone index={id} indice = {indice}/>
     } else{
-        film = <Ghibli_one filmIndex={id} indice = {indice}/>
+        film = <Ghiblione filmIndex={id} indice = {indice}/>
     }
-    
-    const { title } = useParams();
-
 
     return(
         <div className="FilmDetails">
@@ -41,5 +41,6 @@ function FilmDetails() {
 
     )
 }
+
 export default FilmDetails;
 
