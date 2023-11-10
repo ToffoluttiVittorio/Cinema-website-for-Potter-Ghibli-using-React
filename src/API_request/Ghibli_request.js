@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import "./Ghibli_request.css"
+
 
 /**
  * The function encodes spaces in a string to URL-friendly format by replacing them with underscores.
@@ -89,7 +89,7 @@ function Ghibli() {
 
               <p>Année de sortie: {film.release_date}</p>
               <p>Réalisateur: {film.director}</p>
-               <img src={film.image} alt={`Image de ${film.title}`} 
+               <img src={film.image} alt={""}
                style={{ width: '37%', borderRadius:'5%', marginBottom: '50px'  }} 
               /> 
               <div className='bouton_link'>

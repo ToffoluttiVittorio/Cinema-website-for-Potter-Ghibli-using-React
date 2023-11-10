@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import "./Potter_request.css"
 import Button from 'react-bootstrap/Button';
 
 function formatTitleForURL(title) {
@@ -26,13 +25,8 @@ function ind(indHarry, index){
 
 function affichage_seance(indHarry,index, num){
   const indice = ind(indHarry, index) + num;
-
   const dateActuelle = new Date();
-
-
   dateActuelle.setDate(dateActuelle.getDate() + indice);
-
-
   const options = { day: 'numeric', month: 'long' };
   const dateFormatee = dateActuelle.toLocaleDateString('fr-FR', options); 
   return dateFormatee
@@ -67,8 +61,7 @@ function PotterMovies() {
               <p>Directeurs: {movie.attributes.directors.join(', ')}</p>
               <p>Résumé: {movie.attributes.summary}</p>
                 <img
-                src={movie.attributes.poster}
-                alt={`Image de ${movie.attributes.title}`}
+                src={movie.attributes.poster} alt={""}
                 style={{ width: '40%', marginBottom: '10px' }} 
                 />
 

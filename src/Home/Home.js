@@ -1,9 +1,6 @@
 import React from 'react';
 import Bandeau from '../Composants_page/Bandeau.js';
 import "../Composants_page/Bandeau.css"
-
-
-import "./Home.css"
 import "../Page_FilmDetails/FilmDetails.css"
 
 /**
