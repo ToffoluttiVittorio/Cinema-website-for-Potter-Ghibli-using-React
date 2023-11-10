@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../images/logos.png"
-import Calendrier from '../Page_Calendrier/Calendrier';
-import PageFilms from '../Pagefilm/PageFilms';
-import Home from '../Home/Home';
+import Calendrier from '../Page_Calendrier/Calendrier.js';
+import PageFilms from '../Pagefilm/PageFilms.js';
+import Home from '../Home/Home.js';
 import "./Bandeau.css"
 
 const date = new Date();
@@ -16,11 +16,15 @@ const nbrfilmHarry = 8;
 const indGhibli = nbrjour % nbrfilmGhibli;
 const indHarry = nbrjour % nbrfilmHarry;
 
-
 const dateOnly = date.toISOString().split('T')[0];
 console.log(dateOnly);
 
 
+/**
+ * The Bandeau function returns a div element containing a logo, buttons for Films, Calendrier, and
+ * Tickets, and links to different pages.
+ * @returns a JSX element.
+ */
 function Bandeau() {
   return (
     <div className="bandeau">

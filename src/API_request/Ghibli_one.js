@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import CinemaRoom from "../Gestion_Place/CinemaRoom";
+import CinemaRoom from "../Gestion_Place/CinemaRoom.js";
 
-function encodeSpacesToURL(string) {
-  return encodeURIComponent(string).replace(/%20/g, "_");
-}
-
+/**
+ * The function "hoursToMinutes" converts a time string in the format "XhY" to the total number of
+ * minutes.
+ * @param timeString - The timeString parameter is a string that represents a time in hours and
+ * minutes. It should be in the format "XhY", where X is the number of hours and Y is the number of
+ * minutes.
+ * @returns the total number of minutes converted from the input time string.
+ */
 function hoursToMinutes(timeString) {
-  const timeParts = timeString.split("h"); // Divise la chaîne en heures et minutes
-  let hours = parseInt(timeParts[0]) * 60; // Obtient les heures (en tant que nombre)
+  const timeParts = timeString.split("h");
+  let hours = parseInt(timeParts[0]) * 60; 
   let minutes = 0;
   if (timeParts[1]){
     minutes = parseInt(timeParts[1]);
@@ -19,6 +23,17 @@ function hoursToMinutes(timeString) {
   return resultat;
 }
 
+/**
+ * The function takes a base hour and a running time as input, extracts the first word from the running
+ * time, parses it to an integer, adds it to the base hour, rounds the total to the nearest quarter
+ * hour, and returns the result in the format "XhXX".
+ * @param base_hour - The base_hour parameter represents the starting hour in the format of "hh:mm"
+ * (e.g., "08:30").
+ * @param running_time - The `running_time` parameter is a string that represents the duration of time
+ * in hours and minutes.
+ * @returns a string in the format "XhY" where X represents the number of hours and Y represents the
+ * number of minutes.
+ */
 function extractAndParseFirstWordToInt(base_hour,running_time) {
 
   const base = hoursToMinutes(base_hour);
@@ -39,16 +54,23 @@ function extractAndParseFirstWordToInt(base_hour,running_time) {
 }
 
 
+/**
+ * The function `Ghibli_one` is a React component that fetches data from the Studio Ghibli API and
+ * displays information about a specific film, including its title, release date, director, image, and
+ * description. It also provides buttons to select different showtimes for the film.
+ * @returns a JSX element that displays information about a film from Studio Ghibli. The film's title,
+ * release date, director, image, and description are displayed. Additionally, there are buttons that
+ * link to a cinema room component with different showtimes for the film.
+ */
 function Ghibli_one({ filmIndex, indice  }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    // Effectuer la requête à l'API
     fetch('https://ghibliapi.vercel.app/films')
       .then(response => response.json())
-      .then(data => setData(data[filmIndex])) // Utiliser filmIndex pour sélectionner le film
+      .then(data => setData(data[filmIndex])) 
       .catch(error => console.error('Erreur lors de la requête :', error));
-  }, [filmIndex]); // Ajoutez filmIndex dans la liste des dépendances
+  }, [filmIndex]); 
 
   return (
     <div className="Ghibli_one">

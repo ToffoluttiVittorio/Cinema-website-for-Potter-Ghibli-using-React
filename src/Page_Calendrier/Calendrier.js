@@ -1,23 +1,25 @@
-import Bandeau from '../Composants_page/Bandeau';
+import Bandeau from '../Composants_page/Bandeau.js';
 import "../Composants_page/Bandeau.css"
 import "../Page_Calendrier/Calendrier.css"
 import "../Page_Calendrier/Catest.css"
-import Ghibli_one from '../API_request/Ghibli_one';
-import Potter_one from '../API_request/Potter_one';
+import Ghibli_one from '../API_request/Ghibli_one.js';
+import Potter_one from '../API_request/Potter_one.js';
 import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import "../Page_FilmDetails/FilmDetails.css"
 
+/**
+ * The Calendrier function is a React component that displays a calendar and information about movies
+ * currently playing.
+ * @returns The Calendrier component is returning a JSX element.
+ */
 function Calendrier() {
-
 
   const location = useLocation();
   const indGhibli = location.state[0];
   const indHarry = location.state[1];
   const dateonly = location.state[2];
-
-
 
   return (
     <div className="Calendrier">

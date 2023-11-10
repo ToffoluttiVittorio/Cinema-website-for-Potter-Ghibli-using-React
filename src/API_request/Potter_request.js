@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Potter_request.css"
+import Button from 'react-bootstrap/Button';
 
 function formatTitleForURL(title) {
   return title.toLowerCase().replace(/ /g, '_');
@@ -28,10 +29,10 @@ function affichage_seance(indHarry,index, num){
 
   const dateActuelle = new Date();
 
-  // Ajoutez l'indice de jours à la date actuelle
+
   dateActuelle.setDate(dateActuelle.getDate() + indice);
 
-  // Formatez la date au format "jour mois" (par exemple, "26 novembre")
+
   const options = { day: 'numeric', month: 'long' };
   const dateFormatee = dateActuelle.toLocaleDateString('fr-FR', options); 
   return dateFormatee
@@ -41,7 +42,7 @@ function PotterMovies() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    // Effectuer la requête à l'API
+
     fetch('https://api.potterdb.com/v1/movies')
       .then(response => response.json())
       .then(data => {
@@ -59,8 +60,7 @@ function PotterMovies() {
         <ul>
           {data.data.map((movie,index) => (
             <li key={movie.id}>
-              {/* <p>{index}</p>
-              <p>{indHarry}</p> */}
+
               <h2>{movie.attributes.title}</h2>
               <p>Box Office: {movie.attributes.box_office}</p>
               <p>Budget: {movie.attributes.budget}</p>
@@ -74,7 +74,7 @@ function PotterMovies() {
 
               <Link to={`/Films/${formatTitleForURL(movie.attributes.title)}`} 
                 state = {[index,`Potter`,ind(indHarry, index)+0]} >
-              <button >{affichage_seance(indHarry,index,0)}</button>
+              <Button variant="primary">{affichage_seance(indHarry,index,0)}</Button>
               </Link>
               <Link to={`/Films/${formatTitleForURL(movie.attributes.title)}`} 
                 state = {[index,`Potter`,ind(indHarry, index)+8]} >

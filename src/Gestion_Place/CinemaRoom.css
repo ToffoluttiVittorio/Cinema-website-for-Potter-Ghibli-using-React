@@ -1,4 +1,4 @@
-/* Styles pour le fond obscurci */
+
 .modal-background {
     display: none;
     position: fixed;
@@ -10,7 +10,7 @@
     z-index: 1;
   }
   
-  /* Styles pour le contenu du popup */
+
   .modal-content {
     background-color: #fff;
     position: absolute;
@@ -21,8 +21,7 @@
     border: 1px solid #888;
     z-index: 2;
   }
-  
-  /* Styles pour le bouton "Fermer" du popup */
+
   .close {
     color: #aaa;
     float: right;

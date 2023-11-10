@@ -18,7 +18,6 @@ router.get('', (req, res) => {
       return res.status(400).json({ message: 'Date and category are required query parameters.' });
     }
   
-    // Supposons que vous ayez un modèle Ticket avec des attributs date et category.
     Ticket.findAll({
       where: {
         date: date,

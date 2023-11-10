@@ -2,46 +2,49 @@ import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import './LoginForm.css';
 
+/**
+ * The `LoginForm` function is a React component that renders a login form and handles form submission.
+ * @returns The `LoginForm` component is returning a JSX element that represents a login form.
+ */
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isSuccess, setIsSuccess] = useState(false); // État pour gérer la redirection
-  const [error, setError] = useState(null); // État pour gérer les erreurs
+  const [isSuccess, setIsSuccess] = useState(false); 
+  const [error, setError] = useState(null); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     Cookies.remove('user_email');
 
-    // Créez un objet URLSearchParams pour les données du formulaire
+
     const formData = new URLSearchParams();
     formData.append('email', email);
     formData.append('password', password);
 
-    // Envoyez les données au serveur Express en utilisant la méthode PUT
     const response = await fetch('http://localhost:8888/users', {
-      method: 'PUT', // Utilisez la méthode PUT
+      method: 'PUT', 
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded', // Spécifiez le type de contenu
+        'Content-Type': 'application/x-www-form-urlencoded', 
       },
-      body: formData.toString(), // Convertissez les données du formulaire en une chaîne
+      body: formData.toString(), 
     });
 
     if (response.ok) {
-      // L'utilisateur a été créé ou mis à jour avec succès (selon la sémantique de votre API)
-      setIsSuccess(true); // Déclenche la redirection
+
+      setIsSuccess(true); 
     } else {
-      // Erreur lors de la création ou de la mise à jour de l'utilisateur
+
       console.error('Erreur lors de la création ou de la mise à jour de l\'utilisateur');
       const data = await response.json();
-      setError(data.message); // Définit l'erreur en fonction du message renvoyé
+      setError(data.message); 
     }
   };
 
-  // Redirigez l'utilisateur si isSuccess est vrai
+
   if (isSuccess) {
     Cookies.set('user_email', email, { expires: 1 });
-    window.location.href = '/Home'; // Redirection vers la page souhaitée
+    window.location.href = '/Home'; 
   }
 
   return (

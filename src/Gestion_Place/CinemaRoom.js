@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import CinemaSeat from './CinemaSeat';
+import CinemaSeat from './CinemaSeat.js';
 import Cookies from 'js-cookie';
 import { useLocation } from 'react-router-dom';
-import Bandeau from '../Composants_page/Bandeau';
+import Bandeau from '../Composants_page/Bandeau.js';
 import "../Page_FilmDetails/FilmDetails.css"
 
 
 
+/**
+ * The CinemaScreen function returns a rectangle element representing a cinema screen.
+ * @returns A rectangle element with the specified dimensions and color is being returned.
+ */
 const CinemaScreen = () => {
     return (
       <rect x="70" y="20" width="350" height="30" fill="midnightblue" />
     );
   };
 
+/**
+ * The CinemaRoom function is a React component that displays a cinema room with seats and allows users
+ * to select and reserve seats.
+ * @returns The CinemaRoom component is returning a JSX element, which consists of a div containing a
+ * Bandeau component, a heading, an SVG element representing a cinema screen, a map function that
+ * renders CinemaSeat components, a paragraph displaying the selected seats, a button to validate the
+ * reservation, and a conditional popup component.
+ */
 const CinemaRoom = () => {
   const location = useLocation();
   const numeroSeance = location.state[0];
@@ -43,7 +55,7 @@ const CinemaRoom = () => {
       fetch(`http://localhost:8888/tickets?date=${dateOnly}&categorie=${categorie}&numeroSeance=${numeroSeance}`)
         .then((response) => response.json())
         .then((responseData) => {
-          // Mappez les numéros de siège de chaque ticket et stockez-les dans un tableau
+
           let seatNumbers = responseData.data.map((ticket) => ticket.numeroSiege);
 
           if (covidCrisis){
@@ -98,7 +110,7 @@ const CinemaRoom = () => {
           if (data && data.data) {
             userId = data.data.id;
       
-            // Créez un nouvel objet FormData
+
             selectedSeats.forEach((valeur) => {
               const formData = new URLSearchParams();
 
@@ -112,7 +124,7 @@ const CinemaRoom = () => {
 
               console.log(dateOnly,valeur);
       
-              // Envoyez les données au serveur Express en utilisant la méthode PUT
+
               return fetch('http://localhost:8888/tickets', {
                 method: 'PUT',
                 headers: {

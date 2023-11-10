@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import CinemaRoom from "../Gestion_Place/CinemaRoom";
+import CinemaRoom from "../Gestion_Place/CinemaRoom.js";
 
 
-function formatTitleForURL(title) {
-  return title.toLowerCase().replace(/ /g, "_");
-}
-
+/**
+ * The function "hoursToMinutes" takes a time string in the format "XhY" and converts it to minutes.
+ * @param timeString - A string representing a time in the format "XhY", where X is the number of hours
+ * and Y is the number of minutes.
+ * @returns the total number of minutes represented by the input time string.
+ */
 function hoursToMinutes(timeString) {
-  const timeParts = timeString.split("h"); // Divise la chaîne en heures et minutes
-  let hours = parseInt(timeParts[0]) * 60; // Obtient les heures (en tant que nombre)
+  const timeParts = timeString.split("h"); 
+  let hours = parseInt(timeParts[0]) * 60; 
   let minutes = 0;
   if (timeParts[1]){
     minutes = parseInt(timeParts[1]);
@@ -20,6 +22,17 @@ function hoursToMinutes(timeString) {
   return resultat;
 }
 
+/**
+ * The function takes a base hour and a running time as input, extracts the first word from the running
+ * time, parses it to an integer, adds it to the base hour, rounds the total to the nearest quarter
+ * hour, and returns the result in the format "XhXX".
+ * @param base_hour - The base_hour parameter represents the starting hour in the format of "hh:mm"
+ * (e.g., "08:30").
+ * @param running_time - The `running_time` parameter is a string that represents the duration of time
+ * in hours and minutes.
+ * @returns a string in the format "XhY" where X represents the number of hours and Y represents the
+ * number of minutes.
+ */
 function extractAndParseFirstWordToInt(base_hour,running_time) {
 
   const base = hoursToMinutes(base_hour);
@@ -40,16 +53,24 @@ function extractAndParseFirstWordToInt(base_hour,running_time) {
 }
 
 
+/**
+ * The Potter_one function fetches data from an API and displays information about a Harry Potter
+ * movie, including its title, box office, budget, directors, summary, poster, running time, trailer,
+ * and wiki link.
+ * @returns The function `Potter_one` returns JSX elements that display information about a Harry
+ * Potter movie. If the `data` state is not null, it renders the movie title, box office, budget,
+ * directors, summary, poster image, and buttons for different showtimes. If the `data` state is null,
+ * it displays a "Chargement en cours..." message.
+ */
 function Potter_one({ index, indice }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    // Effectuer la requête à l'API
     fetch("https://api.potterdb.com/v1/movies")
       .then((response) => response.json())
-      .then((data) => setData(data.data[index])) // Utiliser l'index pour sélectionner le film
+      .then((data) => setData(data.data[index])) 
       .catch((error) => console.error("Erreur lors de la requête :", error));
-  }, [index]); // Ajoutez l'index dans la liste des dépendances
+  }, [index]);
 
 
     return (

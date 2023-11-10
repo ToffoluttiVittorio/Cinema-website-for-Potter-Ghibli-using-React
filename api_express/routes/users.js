@@ -44,7 +44,7 @@ router.get('/:email', (req, res) => {
           return res.status(404).json({ message: 'This user does not exist' });
         }
   
-        // Maintenant, vous pouvez envoyer l'ID de l'utilisateur dans la réponse JSON
+
         return res.status(200).json({ data: user });
       })
       .catch(err => res.status(500).json({ message: 'Database error', error: err }));

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Bandeau from '../Composants_page/Bandeau';
+import Bandeau from '../Composants_page/Bandeau.js';
 import Cookies from 'js-cookie';
 import "../Page_FilmDetails/FilmDetails.css"
 
@@ -21,7 +21,7 @@ function UserTicket() {
           if (response.status === 200) {
             return response.json();
           } else if (response.status === 404) {
-            // Gérer le cas où l'utilisateur n'est pas trouvé
+
           } else {
             console.error('Erreur de communication avec le serveur');
           }
@@ -52,7 +52,7 @@ function UserTicket() {
     })
       .then((response) => {
         if (response.status === 204) {
-          // Ticket supprimé avec succès, mettez à jour la liste des tickets
+
           const updatedTickets = userTickets.filter((ticket) => ticket.id !== ticketId);
           setUserTickets(updatedTickets);
         } else {

@@ -48,7 +48,7 @@
     padding: 8px;
     border: 2px solid #ccc;
     border-radius: 3px;
-    margin: 100; /* Remarquez cette ligne pour uniformiser les marges */
+    margin: 100; 
   }
   
   .submit-button {

@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Bandeau from '../Composants_page/Bandeau';
+import Bandeau from '../Composants_page/Bandeau.js';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Potter_one from '../API_request/Potter_one';
-import Ghibli_one from '../API_request/Ghibli_one';
+import Potter_one from '../API_request/Potter_one.js';
+import Ghibli_one from '../API_request/Ghibli_one.js';
 import "../Page_FilmDetails/FilmDetails.css"
 
 
@@ -27,7 +27,7 @@ function FilmDetails() {
         film = <Ghibli_one filmIndex={id} indice = {indice}/>
     }
     
-    const { title } = useParams(); // Récupère l'URL
+    const { title } = useParams();
 
 
     return(

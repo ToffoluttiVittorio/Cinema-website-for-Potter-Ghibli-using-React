@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
 
+/**
+ * The CinemaSeat component is a clickable SVG seat that changes color when clicked and updates its
+ * state.
+ * @returns The CinemaSeat component is returning an SVG element that represents a cinema seat. The
+ * seat is represented by a rectangle with a seat number displayed in the middle. The color of the seat
+ * can be changed based on its clickability and state.
+ */
 const CinemaSeat = ({ seatNumber, isClickable, updateSeatState}) => {
   const [seatColor, setSeatColor] = useState('midnightblue');
 
-useEffect(() => {
-    if (isClickable === 2){
-        setSeatColor('grey')
-    }
+  useEffect(() => {
+      if (isClickable === 2){
+          setSeatColor('grey')
+      }
 
-}, [isClickable]);
+  }, [isClickable]);
 
   const handleClick = () => {
     if (isClickable===1) {

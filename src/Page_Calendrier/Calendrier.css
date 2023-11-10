@@ -3,11 +3,11 @@
   .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Marge au-dessus des boutons */
+    margin-top: 20px; 
   }
   
   .cal-button {
-    margin: 0 10px; /* Marge entre les boutons */
+    margin: 0 10px;
     padding: 10px 20px;
     font-size: 18px;
     background-color: #007bff;
