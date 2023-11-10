@@ -3,6 +3,7 @@ import Bandeau from '../Composants_page/Bandeau.js';
 import Cookies from 'js-cookie';
 import "../Page_FilmDetails/FilmDetails.css"
 
+
 /**
  * The UserTicket function is a React component that fetches and displays a user's tickets, allowing
  * them to delete tickets if desired.
@@ -10,12 +11,15 @@ import "../Page_FilmDetails/FilmDetails.css"
  * component.
  */
 function UserTicket() {
-  const userEmail = Cookies.get('user_email');
-  const encodedEmail = encodeURIComponent(userEmail);
+
   const [userId, setUserId] = useState(null);
   const [userTickets, setUserTickets] = useState([]);
 
   useEffect(() => {
+
+    const userEmail = Cookies.get('user_email');
+    const encodedEmail = encodeURIComponent(userEmail);
+    
     fetch(`http://localhost:8888/users/${encodedEmail}`, {
       method: 'GET',
       headers: {

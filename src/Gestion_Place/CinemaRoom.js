@@ -36,6 +36,7 @@ const CinemaRoom = () => {
     indice_date = 0;
   };
 
+  console.log(indice_date);
 
   const today = new Date();
   today.setDate(today.getDate() + indice_date);
