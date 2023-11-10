@@ -31,12 +31,13 @@ const CinemaRoom = () => {
   const categorie = location.state[1][0];
   let indice_date = location.state[2];
 
+  console.log(location.state[0],location.state[1][0],location.state[2]);
+
   if (!indice_date){
     indice_date = 0;
-  }
+  };
 
-  console.log(numeroSeance,categorie,indice_date);
-
+  console.log(indice_date);
 
   const today = new Date();
   today.setDate(today.getDate() + indice_date);
@@ -44,7 +45,7 @@ const CinemaRoom = () => {
   const month = String(today.getMonth() + 1).padStart(2, "0");
   const day = String(today.getDate()).padStart(2, "0");
   const dateOnly = `${year}-${month}-${day}`;
-  console.log(dateOnly);
+
   
     const [data, setData] = useState([]);
 
@@ -52,7 +53,12 @@ const CinemaRoom = () => {
     const covid = [0,2,4,6,8,11,13,15,17,19,20,22,24,26,28,31,33,35,37,39,40,42,44,46,48,51,53,55,57,59];
 
     useEffect(() => {
-      fetch(`http://localhost:8888/tickets?date=${dateOnly}&categorie=${categorie}&numeroSeance=${numeroSeance}`)
+      fetch(`http://localhost:8888/tickets?date=${dateOnly}&categorie=${categorie}&numeroSeance=${numeroSeance}`,{
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      })
         .then((response) => response.json())
         .then((responseData) => {
 
@@ -66,7 +72,7 @@ const CinemaRoom = () => {
         .catch((error) => {
           console.error('Erreur lors de la récupération des tickets :', error);
         });
-    }, []); 
+    }); 
   
 
   const userEmail = Cookies.get('user_email');
@@ -93,7 +99,7 @@ const CinemaRoom = () => {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-      })
+        })
         .then(response => {
           if (response) {
             if (response.status === 200) {
@@ -112,18 +118,15 @@ const CinemaRoom = () => {
       
 
             selectedSeats.forEach((valeur) => {
-              const formData = new URLSearchParams();
 
-              
+              const formData = new URLSearchParams();
 
               formData.append("categorie", categorie);
               formData.append("date", dateOnly);
               formData.append("numeroSeance", numeroSeance);
               formData.append("numeroSiege", valeur);
               formData.append("userId", userId);
-
-              console.log(dateOnly,valeur);
-      
+              
 
               return fetch('http://localhost:8888/tickets', {
                 method: 'PUT',

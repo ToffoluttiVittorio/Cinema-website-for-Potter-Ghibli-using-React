@@ -17,8 +17,6 @@ function FilmDetails() {
     let id = location.state[0];
     let film = location.state[1];
     let indice = location.state[2];
-
-    console.log(indice);
     
     if (id){
     } else {

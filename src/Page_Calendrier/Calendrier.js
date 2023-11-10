@@ -19,6 +19,7 @@ function Calendrier() {
   const indGhibli = location.state[0];
   const indHarry = location.state[1];
 
+  console.log(indGhibli,indHarry);
 
   return (
     <div className="Calendrier">

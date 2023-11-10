@@ -15,7 +15,6 @@ const indGhibli = nbrjour % nbrfilmGhibli;
 const indHarry = nbrjour % nbrfilmHarry;
 
 const dateOnly = date.toISOString().split('T')[0];
-console.log(dateOnly);
 
 
 /**
