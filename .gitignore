@@ -28,5 +28,4 @@ yarn-error.log*
 # Ignore dependencies in the root
 /node_modules
 
-# Ignore dependencies in the API directory
-/api_express/node_modules
+
