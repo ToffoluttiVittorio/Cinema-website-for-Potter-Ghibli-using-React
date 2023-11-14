@@ -31,7 +31,6 @@ router.get('', (req,res) => {
 
 router.get('/:email', (req, res) => {
     const encodedEmail = req.params.email;
-    console.log(req.params.email)
     if (!encodedEmail) {
       return res.status(400).json({ message: 'Missing parameters' });
     }
@@ -71,17 +70,14 @@ router.put('', (req, res) => {
                     User.create(req.body)
                         .then(newUser => res.json({ message: 'User created', data: newUser }))
                         .catch(err => {
-                            console.log('Error in User.create:', err);
                             res.status(500).json({ message: 'Error in create', error: err });
                         });
                 })
                 .catch(err => {
-                    console.log('Error in bcrypt.hash:', err);
                     res.status(500).json({ message: 'Error', error: err });
                 });
         })
         .catch(err => {
-            console.log('Error in User.findOne:', err);
             res.status(500).json({ message: 'Error', error: err });
         });
 });

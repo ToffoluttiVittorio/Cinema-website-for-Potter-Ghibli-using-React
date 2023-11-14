@@ -32,7 +32,6 @@ router.get('', (req, res) => {
 
 router.delete('/:id', (req,res) =>{
     let ticketId = parseInt(req.params.id)
-    console.log(req.params.id)
     if(!ticketId){
         return res.status(400).json({message:'Missing parameters'})
     }
@@ -44,7 +43,6 @@ router.delete('/:id', (req,res) =>{
 
 router.get('/:id',(req,res) =>{
     let userId = parseInt(req.params.id)
-    console.log(req.params.id)
     if (!userId){
         return res.json(400).json({message: 'Missing id'})
     }
@@ -74,7 +72,6 @@ router.put('', (req, res) => {
     Ticket.create(req.body)
         .then(newUser => res.json({ message: 'Ticket created', data: newUser }))
         .catch(err => {
-            console.log('Error in User.create:', err);
             res.status(500).json({ message: 'Error in create', error: err });
         });
 })
