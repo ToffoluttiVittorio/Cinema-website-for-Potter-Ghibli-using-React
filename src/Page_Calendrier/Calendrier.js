@@ -19,8 +19,6 @@ function Calendrier() {
   const indGhibli = location.state[0];
   const indHarry = location.state[1];
 
-  console.log(indGhibli,indHarry);
-
   return (
     <div className="Calendrier">
       <Bandeau />
@@ -36,8 +34,8 @@ function Calendrier() {
 
       <p style={{fontWeight: 'bold', fontSize: '30px'}}>Film à l'affiche :</p>
 
-      <Ghiblione filmIndex={indGhibli}/>
-      <Potterone index={indHarry}/>
+      <Ghiblione filmIndex={indGhibli} indice ={indGhibli - 5}/>
+      <Potterone index={indHarry} indice = {indHarry - 3}/>
       </div>
       </div>
   );

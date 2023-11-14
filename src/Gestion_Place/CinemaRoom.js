@@ -31,13 +31,6 @@ const CinemaRoom = () => {
   const categorie = location.state[1][0];
   let indice_date = location.state[2];
 
-
-  if (!indice_date){
-    indice_date = 0;
-  };
-
-  console.log(indice_date);
-
   const today = new Date();
   today.setDate(today.getDate() + indice_date);
   const year = today.getFullYear();
@@ -45,9 +38,7 @@ const CinemaRoom = () => {
   const day = String(today.getDate()).padStart(2, "0");
   const dateOnly = `${year}-${month}-${day}`;
 
-  
     const [data, setData] = useState([]);
-
     const covidCrisis = true;
     const covid = [0,2,4,6,8,11,13,15,17,19,20,22,24,26,28,31,33,35,37,39,40,42,44,46,48,51,53,55,57,59];
 
